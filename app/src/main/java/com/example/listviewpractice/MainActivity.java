@@ -3,7 +3,8 @@ package com.example.listviewpractice;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -60,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
         ListView listview = (ListView)findViewById(R.id.list_item);
 
         listview.setAdapter(adapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ImageAndText iat = listItem.get(position);
+            }
+        });
     }
 
     public void addItem() {
